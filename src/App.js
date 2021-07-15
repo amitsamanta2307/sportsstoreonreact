@@ -7,12 +7,14 @@ import {
   Redirect
 } from 'react-router-dom';
 
-import { SportsStoreDataStore } from './data/DataStore';
+import configureStore from './data/configureStore';
 import ShopConnector from './shop/ShopConnector';
+
+const store = configureStore();
 
 function App() {
   return (
-    <Provider store={SportsStoreDataStore}>
+    <Provider store={store}>
       <Router>
         <Switch>
           <Route path="/shop" component={ShopConnector} />
